@@ -7,10 +7,14 @@ import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import cors from "cors"
 import path from "path"
+import { fileURLToPath } from "url";
 
 dotenv.config({path:"./.env"})
 
 connectDB()
+
+const __filename = fileURLToPath(import.meta.url)  //  for dirname use beauce dirname is ES5
+const __dirname = path.dirname(__filename)        //   and we are using ES6, for deployment
 
 const app = express();
 
